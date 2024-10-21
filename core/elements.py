@@ -1,4 +1,5 @@
 import json
+#from core.utils import example_func
 
 class Signal_information(object):
     def __init__(self):
