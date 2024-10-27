@@ -2,48 +2,54 @@ import json
 #from core.utils import example_func
 
 class Signal_information(object):
-    def __init__(self):
-        pass
+    def __init__(self, signal_power:float, path):
+        self._signal_power= signal_power
+        self._noise_power = 0.0
+        self._latency = 0.0
+        self._path = path[:]
 
     @property
     def signal_power(self):
-        pass
+        return self._signal_power
 
-    def update_signal_power(self):
-        pass
+
+    def update_signal_power(self,increment):
+        self._signal_power += increment
 
     @property
     def noise_power(self):
-        pass
+        return self._noise_power
 
     @noise_power.setter
-    def noise_power(self):
-        pass
+    def noise_power(self, new_noise):
+        self._noise_power = new_noise
 
-    def update_noise_power(self):
-        pass
+    def update_noise_power(self, increment):
+        self._noise_power += increment
 
     @property
     def latency(self):
-        pass
+        return self._latency
 
     @latency.setter
-    def latency(self):
-        pass
+    def latency(self, new_lat):
+        self._latency = new_lat
 
-    def update_latency(self):
-        pass
+    def update_latency(self, inc):
+        self._latency += inc
 
     @property
     def path(self):
-        pass
+        return self._path
 
     @path.setter
-    def path(self):
-        pass
+    def path(self, new_path):
+        self._path = new_path[:]
 
     def update_path(self):
-        pass
+        if self._path:
+            self._path.pop(0)
+
 
 
 class Node(object):
